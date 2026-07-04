@@ -1,0 +1,19 @@
+services:
+  shopping-mall:
+    image: crpi-wwifswyqz8bp8ddb.cn-wulanchabu.personal.cr.aliyuncs.com/stellerainn/shopping-mall:frontend-latest
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VUE_APP_PUBLIC_BASE_URL: /shopping-mall/
+    container_name: shopping-mall
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - portfolio-public
+
+networks:
+  portfolio-public:
+    external: true
